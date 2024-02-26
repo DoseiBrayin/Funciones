@@ -15,6 +15,13 @@
       "type": "http",
       "direction": "out",
       "name": "$return"
+    },{
+      "name": "upsertItem",
+      "type": "sql",
+      "direction": "out",
+      "commandText": "dbo.ToDo",
+      "connectionStringSetting": "SqlConnectionString"
+
     }
   ]
 }
