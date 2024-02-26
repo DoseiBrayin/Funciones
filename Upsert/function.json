@@ -21,7 +21,6 @@
       "direction": "out",
       "commandText": "dbo.ToDo",
       "connectionStringSetting": "SqlConnectionString"
-
     }
   ]
 }

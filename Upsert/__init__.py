@@ -1,24 +1,20 @@
 import logging
-
 import azure.functions as func
 
-
-def main(req: func.HttpRequest) -> func.HttpResponse:
+def main(req: func.HttpRequest, upsertItem:func.Out[func.SqlRow]) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
+    
+    try:
+        req_body = req.get_json()
+        row = func.SqlRow.from_dict(req_body)
+        upsertItem.set(row)
+    except ValueError:
+        pass
 
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        return func.HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+    if req_body:
+        return func.HttpResponse(f"Success, {req_body}. This HTTP triggered function executed successfully.")
     else:
         return func.HttpResponse(
-             "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+            "Failed to upsert item. Please pass a valid item in the request body.",
              status_code=200
         )
