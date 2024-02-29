@@ -18,9 +18,9 @@
     },{
       "name": "deleteItem",
       "type": "sql",
-      "direction": "in",
-      "commandText": "DeleteToDo",
-      "commandType": "StoredProcedure",
+      "direction": "out",
+      "commandText": "delete from dbo.ToDo where Id = @Id",
+      "commandType": "Text",
       "parameters": "@Id = {Query.id}",
       "connectionStringSetting": "SqlConnectionString"
   }
