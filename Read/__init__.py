@@ -2,9 +2,9 @@ import logging
 import azure.functions as func
 import json
 
-def main(req: func.HttpRequest, readItem: func.SqlRowList) -> func.HttpResponse:
+def main(req: func.HttpRequest, readItems: func.SqlRowList) -> func.HttpResponse:
     logging.info("Python HTTP trigger function processed a request.")
-    rows = list(map(lambda r: json.loads(r.to_json()), readItem))
+    rows = list(map(lambda r: json.loads(r.to_json()), readItems))
     if not rows:
         return func.HttpResponse(
             "No items found",

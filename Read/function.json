@@ -16,7 +16,7 @@
       "name": "$return"
     },
     {
-      "name": "readItem",
+      "name": "readItems",
       "type": "sql",
       "direction": "in",
       "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo",
