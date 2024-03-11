@@ -19,10 +19,9 @@
     {
       "name": "deleteItem",
       "type": "sql",
-      "direction": "out",
-      "commandText": "EXEC DeleteToDo @Id",
-      "commandType": "StoredProcedure",
-      "parameters": "@Id = {Query.id}",
+      "direction": "in",
+      "commandText": "EXEC DeleteToDo '{Query.id}'",
+      "commandType": "Text",
       "connectionStringSetting": "SqlConnectionString"
     }
   ]
