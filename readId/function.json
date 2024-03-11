@@ -19,9 +19,8 @@
       "name": "readItem",
       "type": "sql",
       "direction": "in",
-      "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = @Id",
+      "commandText": "select [Id], [order], [title], [url], [completed] from dbo.ToDo where Id = '{Query.id}'",
       "commandType": "Text",
-      "parameters": "@Id = {Query.id}",
       "connectionStringSetting": "SqlConnectionString"
   }
   ]
