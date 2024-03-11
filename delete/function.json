@@ -15,14 +15,15 @@
       "type": "http",
       "direction": "out",
       "name": "$return"
-    },{
+    },
+    {
       "name": "deleteItem",
       "type": "sql",
       "direction": "out",
-      "commandText": "delete from dbo.ToDo where Id = @Id",
-      "commandType": "Text",
+      "commandText": "EXEC DeleteToDo @Id",
+      "commandType": "StoredProcedure",
       "parameters": "@Id = {Query.id}",
       "connectionStringSetting": "SqlConnectionString"
-  }
+    }
   ]
-} 
+}
